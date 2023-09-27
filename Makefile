@@ -30,7 +30,6 @@ LDFLAGS += -X "$(REPO)/version.GitRef=$(GITREF)"
 LDFLAGS += $(EXTRA_LDFLAGS)
 
 .PHONY: build
-build: export CGO_ENABLED=1
 build:
 	@echo "Build using CGO_ENABLED=$(CGO_ENABLED) GOOS=$(GOOS) GOARCH=$(GOARCH)"
 	go build $(BUILD_FLAGS) -gcflags '$(GCFLAGS)' -ldflags '$(LDFLAGS)' -tags "$(BUILD_TAGS)" -o $(BUILD_OUTPUT) main.go
